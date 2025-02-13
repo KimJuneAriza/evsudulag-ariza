@@ -1,0 +1,33 @@
+
+<div class="container">
+    
+    <div class="form-container">
+    <form [formGroup]="loginForm" class="login-form" (ngSubmit)="onLogin()">
+
+        <h2>Login Form</h2>
+
+        <mat-form-field class="form-field">
+            <mat-label>username</mat-label>
+            <input type="email" matInput formControlName="username" placeholder="Ex. user@email.com">
+            @if (username?.hasError('email') && !username?.hasError('required')) {
+                <mat-error>username must be an email format</mat-error>
+            }
+            @if (username?.hasError('required')) {
+                <mat-error>username is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field class="form-field">
+            <mat-label>password</mat-label>
+            <input type="password" matInput formControlName="password" placeholder="********">
+            @if (password?.hasError('required')) {
+                <mat-error>password is <strong>required</strong></mat-error>
+            }
+        </mat-form-field>
+
+        <button  type="submit" mat-flat-button>Basic</button>
+
+  </form>
+</div>
+</div>
+  
