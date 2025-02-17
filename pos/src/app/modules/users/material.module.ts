@@ -7,9 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,
-    MatInputModule,
-    MatFormFieldModule
+    CommonModule
   ],
   exports: [
     MatInputModule,
