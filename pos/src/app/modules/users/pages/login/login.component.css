@@ -30,4 +30,11 @@ h2 {
 button {
     margin: 16px;
 }
-  
+.alert {
+    background-color: rgba(150,0,0,1);
+    text-align: center;
+    color: #fff;
+    padding: 8px;
+    margin-bottom: 16px;
+}
+ 

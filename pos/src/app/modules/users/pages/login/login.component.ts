@@ -19,19 +19,16 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router){}
 
+  loginError: boolean = false;
   public submitLogin() {
     const { username, password } = this.loginForm.value;
     if(this.userService.login(username, password)){
+      this.loginError = false;
       this.router.navigate(['/users/detail']);
     } else {
+      this.loginError = true;
       console.log('error');
     }
-
-    // this.userService.validateUser(this.loginForm.value).subscribe(data => {
-    //   if (data) {
-    //     this.route.navigateByUrl('/users/detail');
-    //   }
-    // })
   }
 
   get username(){
@@ -40,12 +37,4 @@ export class LoginComponent {
   get password(){
     return this.loginForm.get('password');
   }
-
-  // onLogin(){
-  //   if (this.loginForm.valid) {
-  //     console.log(this.loginForm.value);
-  //   } else {
-  //     console.log('Form is invalid');
-  //   }
-  // }
 }

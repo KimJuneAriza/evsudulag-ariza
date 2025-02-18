@@ -8,11 +8,13 @@ export interface UserDetail {
         mobile: string;
         address: string;
         imgUrl: string;
+        job: string;
+        gender: string,
+        age: number,
+        civil: string,
+        birthdate: string,
+        blood: string
     }
     
 }
 
-export interface UserLoginModel {
-    password: string;
-    username: string;
-}
