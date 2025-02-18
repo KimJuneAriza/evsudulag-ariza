@@ -1,0 +1,7 @@
+<div *ngIf="user">
+    <h2>Welcome, {{ user.personalDetail.name }}</h2>
+    <p>Username: {{ user.username }}</p>
+    <img [src]="user.personalDetail.imgUrl" alt="{{ user.personalDetail.name}}">
+    <p>{{user.personalDetail.imgUrl}}</p>
+
+</div>

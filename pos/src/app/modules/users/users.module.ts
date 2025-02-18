@@ -4,11 +4,12 @@ import { UserRoutingModule } from './user-routing.module';
 import { MaterialModule } from './material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
+import { DetailComponent } from './pages/detail/detail.component';
 
 
 
 @NgModule({
-  declarations: [ LoginComponent ],
+  declarations: [ LoginComponent, DetailComponent ],
   imports: [
     CommonModule,
     MaterialModule,
