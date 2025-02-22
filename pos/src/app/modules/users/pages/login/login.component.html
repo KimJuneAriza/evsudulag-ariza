@@ -4,7 +4,7 @@
     <div class="form-container">
     <form [formGroup]="loginForm" class="login-form" (ngSubmit)="submitLogin()">
 
-        <h2>Login To Your Account</h2>
+        <h2>Login Form</h2>
 
         <div *ngIf="loginError" class="alert">
             Login failed. Please ensure your username and password are correct.
@@ -14,7 +14,7 @@
             <mat-label>username</mat-label>
             <input type="email" matInput formControlName="username" placeholder="Ex. user@email.com">
             @if (username?.hasError('email') && !username?.hasError('required')) {
-                <mat-error>username must be an email</mat-error>
+                <mat-error>username must be an email format</mat-error>
             }
             @if (username?.hasError('required')) {
                 <mat-error>username is <strong>required</strong></mat-error>
