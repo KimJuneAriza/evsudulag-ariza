@@ -20,3 +20,18 @@ $router->get('/', function () use ($router) {
 $router->get('/users', 'UserController@getUsers');
 
 $router->post('/login', 'UserController@login');
+
+$router->post('/create', 'UserController@createUser');
+
+$router->post('/update/{id}', 'UserController@updateUser');
+
+$router->post('/delete/{id}', 'UserController@deleteUser');
+
+// products
+$router->post('/addproduct', 'ProductController@addProduct');
+
+$router->post('/updatestock/{id}', 'ProductController@updateStock');
+
+$router->post('/updatestatus/{id}', 'ProductController@updateStatus');
+
+$router->post('/products', 'ProductController@productsList');
