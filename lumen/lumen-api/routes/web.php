@@ -13,13 +13,25 @@
 |
 */
 
+$router->options('/{any:.*}', function () {
+    return response()->json([], 200);
+});
+
+
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
 
-$router->get('/users', 'UserController@getUsers');
 
+// route for login
 $router->post('/login', 'UserController@login');
+
+
+
+
+// other routes
+
+$router->get('/users', 'UserController@getUsers');
 
 $router->post('/create', 'UserController@createUser');
 
@@ -33,5 +45,7 @@ $router->post('/addproduct', 'ProductController@addProduct');
 $router->post('/updatestock/{id}', 'ProductController@updateStock');
 
 $router->post('/updatestatus/{id}', 'ProductController@updateStatus');
+
+$router->post('/products/{status}', 'ProductController@productsList');
 
 $router->post('/products', 'ProductController@productsList');

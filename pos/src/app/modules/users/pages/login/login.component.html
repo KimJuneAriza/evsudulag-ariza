@@ -7,7 +7,7 @@
         <h2>Login To Your Account</h2>
 
         <div *ngIf="loginError" class="alert">
-            Login failed. Please ensure your username and password are correct.
+            {{loginError}}
           </div>
 
         <mat-form-field class="form-field">

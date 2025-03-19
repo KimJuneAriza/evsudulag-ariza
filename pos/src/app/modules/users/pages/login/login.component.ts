@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 
-
 @Component({
   standalone: false,
   selector: 'app-login',
@@ -19,16 +18,21 @@ export class LoginComponent {
 
   constructor(private userService: UserService, private router: Router){}
 
-  loginError: boolean = false;
+  // loggedInUser: any = {};
+  loginError: string = '';
   public submitLogin() {
-    const { username, password } = this.loginForm.value;
-    if(this.userService.login(username, password)){
-      this.loginError = false;
-      this.router.navigate(['/users/detail']);
-    } else {
-      this.loginError = true;
-      console.log('error');
+    if (this.loginForm.invalid) {
+      this.loginError = 'Please enter valid credentials.';
+      return;
     }
+
+    this.userService.userLogin(this.loginForm.value).subscribe((data) => {
+      console.log(data);
+      // this.loggedInUser = data.user;
+
+      this.loginError = '';
+      this.router.navigate(['/users/dashboard']); 
+    });
   }
 
   get username(){
@@ -37,4 +41,24 @@ export class LoginComponent {
   get password(){
     return this.loginForm.get('password');
   }
+
 }
+
+
+
+
+
+
+
+  
+  // public submitLogin() {
+  //   const { username, password } = this.loginForm.value;
+  //   if(this.userService.login(username, password)){
+  //     this.loginError = false;
+  //     this.router.navigate(['/users/detail']);
+  //   } else {
+  //     this.loginError = true;
+  //     console.log('error');
+  //   }
+  // }
+

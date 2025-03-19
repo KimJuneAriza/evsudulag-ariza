@@ -1,0 +1,46 @@
+<div class="container">
+
+<div class="dashboard-container">
+    <div class="title">
+        <h2>DASHBOARD</h2>
+    </div>
+    <!-- Sales Summary -->
+    <div class="dashboard-summary">
+      <div class="card">
+        <h3>Total Sales</h3>
+        <p>${{ totalSales }}</p>
+      </div>
+      <div class="card">
+        <h3>Total Orders</h3>
+        <p>{{ totalOrders }}</p>
+      </div>
+      <div class="card">
+        <h3>Products in Stock</h3>
+        <p>{{ totalProducts }}</p>
+      </div>
+    </div>
+  
+    <!-- Recent Transactions -->
+    <div class="dashboard-transactions">
+      <h2>Recent Transactions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Product</th>
+            <th>Amount</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of recentTransactions">
+            <td>{{ transaction.id }}</td>
+            <td>{{ transaction.product }}</td>
+            <td>${{ transaction.amount }}</td>
+            <td>{{ transaction.date }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

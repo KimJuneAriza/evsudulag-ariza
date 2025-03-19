@@ -83,6 +83,8 @@ class UserController extends Controller
         ]);
     }
     }
+
+
     public function login(Request $request)
     {
 
@@ -101,7 +103,7 @@ class UserController extends Controller
         }
 
         return response()->json([
-            'message' => "Welcome $user->name",
+            // 'message' => "Welcome $user->name",
             'user' => $user
         ], 200);
     

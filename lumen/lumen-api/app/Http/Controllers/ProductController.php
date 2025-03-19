@@ -9,9 +9,12 @@ use Exception;
 
 class ProductController extends Controller
 {
-    public function productsList(){
-        $products = DB::table('products')->get();
+    public function productsList($status=null){
 
+        $products = DB::table('products')->get();
+        if($status){
+            $products = DB::table('products')->where('status', $status)->get();
+        }
         return response()->json($products);
     }
     public function addProduct(Request $request)
