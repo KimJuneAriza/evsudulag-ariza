@@ -26,12 +26,20 @@ export class LoginComponent {
       return;
     }
 
-    this.userService.userLogin(this.loginForm.value).subscribe((data) => {
-      console.log(data);
-      // this.loggedInUser = data.user;
-
-      this.loginError = '';
-      this.router.navigate(['/users/dashboard']); 
+    this.userService.userLogin(this.loginForm.value).subscribe({
+      next: (data) => {
+        if (data?.user) {
+          this.router.navigate(['/users/dashboard']); // Redirect
+          this.loginError = ''; // Clear error if login is successful
+        }
+      },
+      error: (err) => {
+        if (err.status === 401) {
+          this.loginError = 'Invalid username or password.'; // Show error for wrong credentials
+        } else {
+          this.loginError = 'Something went wrong. Please try again.';
+        }
+      }
     });
   }
 
